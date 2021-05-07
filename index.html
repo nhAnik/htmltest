@@ -1,14 +1,28 @@
 <html>
 <body>
-<div>
-<img src="IMG_20210418_174623.jpg" alt="Flower" width="500" height="600">
-<p>Lorem ipsum dolor sit amet, at alia aliquip vel. Quas inani labore an vel. Sed an nemore minimum accusata. Sint inermis tacimates est ex, ad movet iracundia mei, delicata iracundia laboramus ei eos. Illud principes complectitur te nec, ius alienum insolens ea, cu quo oratio omnesque.
+<input autocomplete="off" list="DataListId" />
+<datalist id="DataListId">
+  <option value="2485">Hozelock 10m Mini Auto Reel - 2485</option>
+  <option value="2401">Hozelock Auto Reel 20m - 2401</option>
+  <option value="2403">Hozelock Auto Reel 30m - 2403</option>
+  <option value="2595">Hozelock Auto Reel 40m - 2595</option>
+</datalist>
 
-<p>Lorem ipsum dolor sit amet, at alia aliquip vel. Quas inani labore an vel. Sed an nemore minimum accusata. Sint inermis tacimates est ex, ad movet iracundia mei, delicata iracundia laboramus ei eos. Illud principes complectitur te nec, ius alienum insolens ea, cu quo oratio omnesque.
+<pre><code>
+	* Enter "hozelock"
+	   - Notice the full result set ✅
 
-<p>Lorem ipsum dolor sit amet, at alia aliquip vel. Quas inani labore an vel. Sed an nemore minimum accusata. Sint inermis tacimates est ex, ad movet iracundia mei, delicata iracundia laboramus ei eos. Illud principes complectitur te nec, ius alienum insolens ea, cu quo oratio omnesque.
+	* Enter "hozelock auto"
+	   - Notice 3 results ✅
 
-<p>Lorem ipsum dolor sit amet, at alia aliquip vel. Quas inani labore an vel. Sed an nemore minimum accusata. Sint inermis tacimates est ex, ad movet iracundia mei, delicata iracundia laboramus ei eos. Illud principes complectitur te nec, ius alienum insolens ea, cu quo oratio omnesque.
-</div>
+	* Enter "40m auto reel"
+	   - No results
+
+	* Enter "autoreel"
+	   - Notice the full result set
+</code></pre>
+
+<strong>A contains type matcher would be better in this instance</strong>
+
 </body>
 </html>
