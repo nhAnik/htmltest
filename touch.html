@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      height: 200px;
+      width: 200px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Touch Test</h1>
+  </div>
+  
+  <script>
+    bElement = document.getElementsByTagName('div')[0];
+    bElement.addEventListener('touchstart', (e) => {
+      if (e.cancelable)
+        e.preventDefault();
+      console.log('touchstart');
+    });
+    bElement.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+    });
+    bElement.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      console.log('touchend');
+    });
+    bElement.addEventListener('mouseover', (e) => {
+      // I should not be printed
+      console.error('mouseover');
+    });
+    bElement.addEventListener('mouseout', (e) => {
+      // I should not be printed
+      console.error('mouseout');
+    });
+  </script>
+</body>
+</html>
