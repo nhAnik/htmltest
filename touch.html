@@ -26,10 +26,12 @@
       console.log('touchstart');
     });
     bElement.addEventListener('touchmove', (e) => {
-      e.preventDefault();
+      if (e.cancelable)
+        e.preventDefault();
     });
     bElement.addEventListener('touchend', (e) => {
-      e.preventDefault();
+      if (e.cancelable)
+        e.preventDefault();
       console.log('touchend');
     });
     bElement.addEventListener('mouseover', (e) => {
