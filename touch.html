@@ -17,8 +17,7 @@
   <div id="maindiv" draggable="false">
     <h1>Touch Test</h1>
   </div>
-  <p>TouchStart count: <span id="ts">0</span> </p>
-  <p>TouchEnd count: <span id="te">0</span> </p>
+  <p>Touch count: <span id="ts">0</span> </p>
   <p>PointerOver (pen) count: <span id="po">0</span> </p>
   <p>Click count: <span id="cc">0</span> </p>
   
@@ -26,26 +25,19 @@
     let dElement = document.getElementById('maindiv');
     
     let ts = 0, te = 0, po = 0, cc =0;
-    dElement.addEventListener('touchstart', (e) => {
+    dElement.addEventListener('pointerover', (e) => {
+      if (e.pointerType == 'touch') {
         console.log('touchstart');
         ts++;
         document.getElementById('ts').innerHTML = ts;
-    });
-    dElement.addEventListener('touchmove', (e) => {
-      
-    });
-    dElement.addEventListener('touchend', (e) => {
-        console.log('touchend');
-        te++;
-        document.getElementById('te').innerHTML = te;
-    });
-    dElement.addEventListener('pointerover', (e) => {
-      if (e.pointerType === 'pen') {
+      }
+      else if (e.pointerType === 'pen') {
         console.log('pointerover');
         po++;
         document.getElementById('po').innerHTML = po;
       }
     });
+
     dElement.addEventListener('click', (e) => {
       console.log('click');
       cc++;
