@@ -14,54 +14,43 @@
   </style>
 </head>
 <body>
-  <div id="maindiv">
+  <div id="maindiv" draggable="false">
     <h1>Touch Test</h1>
   </div>
   <p>TouchStart count: <span id="ts">0</span> </p>
   <p>TouchEnd count: <span id="te">0</span> </p>
-  <p>Mouseover count: <span id="me">0</span> </p>
+  <p>PointerOver (pen) count: <span id="po">0</span> </p>
   <p>Click count: <span id="cc">0</span> </p>
   
   <script>
-    let bElement = document.getElementById('maindiv');
-    let touchedRecent = false;
-    let ts = 0, te = 0, me = 0, cc =0;
-    bElement.addEventListener('touchstart', (e) => {
-      touchedRecent = true;
-      setTimeout(() => {
-        touchedRecent = false;
-      }, 1000);
-
-      console.log('touchstart');
-      ts++;
-      document.getElementById('ts').innerHTML = ts;
+    let dElement = document.getElementById('maindiv');
+    
+    let ts = 0, te = 0, po = 0, cc =0;
+    dElement.addEventListener('touchstart', (e) => {
+        console.log('touchstart');
+        ts++;
+        document.getElementById('ts').innerHTML = ts;
     });
-    bElement.addEventListener('touchmove', (e) => {
+    dElement.addEventListener('touchmove', (e) => {
       
     });
-    bElement.addEventListener('touchend', (e) => {
-      touchedRecent = true;
-      setTimeout(() => {
-        touchedRecent = false;
-      }, 1000);
-
-      console.log('touchend');
-      te++;
-      document.getElementById('te').innerHTML = te;
+    dElement.addEventListener('touchend', (e) => {
+        console.log('touchend');
+        te++;
+        document.getElementById('te').innerHTML = te;
     });
-    bElement.addEventListener('mouseover', (e) => {
-      // I should not be printed
-      if (!touchedRecent) {
-        console.error('mouseover');
-        me++;
-        document.getElementById('me').innerHTML = me;
+    dElement.addEventListener('pointerover', (e) => {
+      if (e.pointerType === 'pen') {
+        console.log('pointerover');
+        po++;
+        document.getElementById('po').innerHTML = po;
       }
     });
-    
-    bElement.addEventListener('click', (e) => {
+    dElement.addEventListener('click', (e) => {
       console.log('click');
       cc++;
       document.getElementById('cc').innerHTML = cc;
+    
     });
   </script>
 </body>
